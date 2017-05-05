@@ -1,13 +1,15 @@
 import React from 'react'
-
 import { Row, Col } from 'react-bootstrap'
+import { connect } from 'react-redux'
+
+import { toggleItem } from './actions.js'
 
 import './Item.css'
 import openUmbrella from './open-umbrella.svg'
 import closedUmbrella from './closed-umbrella.svg'
 
-const Item = ({ title, body, open }) => (
-  <div className="item">
+let Item = ({ title, body, open, onClick }) => (
+  <div onClick={ onClick } className={ "item " + ( open ? "open" : "closed" ) }>
     <Row>
       <Col xs={11}>
         {title}
@@ -23,8 +25,17 @@ const Item = ({ title, body, open }) => (
     </Row>
     { open && <Row><Col xs={12} className="small">{ body }</Col></Row> }
   </div>
-)
-
+);
 //TODO: proptype here and elsewhere
+
+const mapDispatchToProps = (dispatch, ownProps) => (
+  {
+    onClick: () => {
+      dispatch(toggleItem(ownProps.id));
+    }
+  }
+);
+
+Item = connect(null, mapDispatchToProps)(Item);
 
 export default Item;
