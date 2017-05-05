@@ -13,14 +13,14 @@ class TodoList extends Component {
       <div className="todo-list">
         <ItemSearch />
         <ItemsArea />
-        <ButtonToolbar>
+        <ButtonToolbar className="button-toolbar">
           <ButtonGroup>
             <Button>Open All</Button>
             <Button>Close All</Button>
             <Button>Toggle All</Button>
           </ButtonGroup>
 
-          <ButtonGroup>
+          <ButtonGroup className="pull-right">
             <Button bsStyle="primary">Add</Button>
           </ButtonGroup>
         </ButtonToolbar>

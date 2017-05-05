@@ -7,10 +7,8 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Verbling Challenge with Honors by Ben Greenberg</h2>
-        </div>
+      <div className="app">
+        <h2 className="heading">Verbling Challenge with Honors</h2>
         <TodoList />
       </div>
     );

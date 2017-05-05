@@ -1,0 +1,21 @@
+.item {
+  border: solid 2px;
+  padding: 12px 6px 12px 6px;
+  margin: auto;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 3px;
+}
+
+.item .umbrella-icon {
+  width: 24px;
+  vertical-align: top;
+  float: right;
+}
+
+.item.closed {
+  height: 50px;
+}
