@@ -1,4 +1,3 @@
-//TODO: import actions.  determine where they and their constants should go..
 import itemReducer from './itemReducer.js'
 import { OPEN_ALL_ITEMS, CLOSE_ALL_ITEMS, TOGGLE_ALL_ITEMS, ADD_ITEM } from '../actions/itemsActions.js'
 import { TOGGLE_ITEM, toggleItem, openItem, closeItem } from '../actions/itemActions.js'
