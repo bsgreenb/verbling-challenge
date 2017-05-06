@@ -3,32 +3,7 @@ import itemReducer from './itemReducer.js'
 import { OPEN_ALL_ITEMS, CLOSE_ALL_ITEMS, TOGGLE_ALL_ITEMS, ADD_ITEM } from '../actions/itemsActions.js'
 import { TOGGLE_ITEM, toggleItem, openItem, closeItem } from '../actions/itemActions.js'
 
-//TODO: remove this once I have it dynamically initialized
-let startingItems = [
-  {
-    id: 1,
-    title: "Lipsum ipsum dolor sit amet, consectetur",
-    body: "elit, sed do eiusmod tempor incidundt ut labore",
-    open: true,
-  },
-  {
-    id: 2,
-    title: "Lipsum ipsum dolor sit amet, consectetur",
-    body: "elit, sed do eiusmod tempor incidundt ut labore elit, sed do eiusmod tempor incidundt ut labore",
-    open: true,
-  },
-  {
-    id: 3,
-    title: "Lipsum ipsum dolor sit amet, consectetur",
-    body: "elit, sed do eiusmod tempor incidundt ut labore elit, sed do eiusmod tempor incidundt ut labore",
-    open: true,
-  },
-];
-
-startingItems = [];
-
-//QSTN: do I need to percolate TOGGLE_TODO downwards or would it reach their regardless?
-const itemsReducer = (state = startingItems, action) => {
+const itemsReducer = (state = [], action) => {
   switch (action.type) {
     case TOGGLE_ITEM:
       return state.map(item => itemReducer(item, action))
@@ -40,6 +15,8 @@ const itemsReducer = (state = startingItems, action) => {
       // I'm a fan of how it always goes through the same toggleItem logic
       return state.map(item => itemReducer(item, toggleItem(item.id)))
     case ADD_ITEM:
+      // Note: this ID approach only works because we don't have deletes.
+      // You'll want to use node-uuid for a unique ID if you want to allow deletes without overlap.
       const nextId = state.length ? state[state.length - 1].id + 1 : 1;
       return [...state, {id: nextId, title: action.title, body: action.body, open: true}]
     default:

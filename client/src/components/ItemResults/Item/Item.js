@@ -8,11 +8,13 @@ import './Item.css'
 import openUmbrella from './open-umbrella.svg'
 import closedUmbrella from './closed-umbrella.svg'
 
+const TRUNCATION_LENGTH = 40;
+
 let Item = ({ title, body, open, onClick }) => (
   <div onClick={ onClick } className={ "item " + ( open ? "open" : "closed" ) }>
     <Row>
       <Col xs={11}>
-        {title}
+        { open ? title : title.substr(0, TRUNCATION_LENGTH) }
         { !open && '...'}
       </Col>
       <Col xs={1}>
