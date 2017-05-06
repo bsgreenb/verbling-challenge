@@ -1,6 +1,7 @@
 import React from 'react'
 import { FormControl } from 'react-bootstrap'
 import { connect } from 'react-redux'
+import { FormattedMessage } from 'react-intl'
 
 import { searchItems } from '../../actions/itemsActions.js'
 

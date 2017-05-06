@@ -1,6 +1,7 @@
 import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
+import { FormattedMessage } from 'react-intl'
 
 import { toggleItem } from '../../../actions/itemActions.js'
 

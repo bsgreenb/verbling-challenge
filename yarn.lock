@@ -470,6 +470,14 @@ babel-plugin-jest-hoist@^18.0.0:
   version "18.0.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-jest-hoist/-/babel-plugin-jest-hoist-18.0.0.tgz#4150e70ecab560e6e7344adc849498072d34e12a"
 
+babel-plugin-react-intl:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-react-intl/-/babel-plugin-react-intl-2.3.1.tgz#3d43912e824da005e08e8e8239d5ba784374bb00"
+  dependencies:
+    babel-runtime "^6.2.0"
+    intl-messageformat-parser "^1.2.0"
+    mkdirp "^0.5.1"
+
 babel-plugin-syntax-async-functions@^6.8.0:
   version "6.13.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-async-functions/-/babel-plugin-syntax-async-functions-6.13.0.tgz#cad9cad1191b5ad634bf30ae0872391e0647be95"
@@ -853,7 +861,7 @@ babel-register@^6.22.0, babel-register@^6.24.1:
     mkdirp "^0.5.1"
     source-map-support "^0.4.2"
 
-babel-runtime@^6.11.6, babel-runtime@^6.18.0, babel-runtime@^6.20.0, babel-runtime@^6.22.0:
+babel-runtime@^6.11.6, babel-runtime@^6.18.0, babel-runtime@^6.2.0, babel-runtime@^6.20.0, babel-runtime@^6.22.0:
   version "6.23.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.23.0.tgz#0a9489f144de70efb3ce4300accdb329e2fc543b"
   dependencies:
@@ -2661,7 +2669,31 @@ interpret@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.0.3.tgz#cbc35c62eeee73f19ab7b10a801511401afc0f90"
 
-invariant@^2.0.0, invariant@^2.1.0, invariant@^2.2.0, invariant@^2.2.1, invariant@^2.2.2:
+intl-format-cache@^2.0.5:
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/intl-format-cache/-/intl-format-cache-2.0.5.tgz#b484cefcb9353f374f25de389a3ceea1af18d7c9"
+
+intl-messageformat-parser@^1.2.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/intl-messageformat-parser/-/intl-messageformat-parser-1.3.0.tgz#c5d26ffb894c7d9c2b9fa444c67f417ab2594268"
+
+intl-messageformat-parser@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/intl-messageformat-parser/-/intl-messageformat-parser-1.2.0.tgz#5906b7f953ab7470e0dc8549097b648b991892ff"
+
+intl-messageformat@^1.3.0, intl-messageformat@1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/intl-messageformat/-/intl-messageformat-1.3.0.tgz#f7d926aded7a3ab19b2dc601efd54e99a4bd4eae"
+  dependencies:
+    intl-messageformat-parser "1.2.0"
+
+intl-relativeformat@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/intl-relativeformat/-/intl-relativeformat-1.3.0.tgz#893dc7076fccd380cf091a2300c380fa57ace45b"
+  dependencies:
+    intl-messageformat "1.3.0"
+
+invariant@^2.0.0, invariant@^2.1.0, invariant@^2.1.1, invariant@^2.2.0, invariant@^2.2.1, invariant@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
   dependencies:
@@ -4330,6 +4362,21 @@ react-dom:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
     prop-types "~15.5.7"
+
+react-intl:
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-2.2.3.tgz#8eebb03cddc38b337ed22fab78037ab53a594270"
+  dependencies:
+    intl-format-cache "^2.0.5"
+    intl-messageformat "^1.3.0"
+    intl-relativeformat "^1.3.0"
+    invariant "^2.1.1"
+
+react-intl-redux:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/react-intl-redux/-/react-intl-redux-0.4.1.tgz#27fcc1967a7cae3ec467394745bb3b479c5c9c71"
+  dependencies:
+    warning "^3.0.0"
 
 react-overlays@^0.7.0:
   version "0.7.0"

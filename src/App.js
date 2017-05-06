@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { ButtonToolbar, Button } from 'react-bootstrap'
+import { FormattedMessage } from 'react-intl'
 
 import { ItemSearch, ItemResults } from './components'
 import { toggleAllItems, openAllItems, closeAllItems, addItem } from './actions/itemsActions.js'
@@ -23,6 +24,7 @@ let App = ({ openAll, closeAll, toggleAll, add }) => (
   </div>
 )
 
+// TODO: acccess intl from ownProps.
 const mapDispatchToProps = (dispatch) => (
   {
     toggleAll: () => {

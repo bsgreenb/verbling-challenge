@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getVisibleItems } from '../../reducers/itemsReducer.js'
+import { FormattedMessage } from 'react-intl'
 
+import { getVisibleItems } from '../../reducers/itemsReducer.js'
 import Item from './Item/Item.js'
 
 import './ItemResults.css'

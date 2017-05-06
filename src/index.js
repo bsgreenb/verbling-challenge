@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Provider } from 'react-redux'
+import { Provider, intlReducer } from 'react-intl-redux'
+import { addLocaleData, IntlProvider } from 'react-intl'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css'
 
@@ -20,7 +21,10 @@ store.subscribe(() => {
   saveLocalStorage({ items: store.getState().items })
 })
 
+// See https://github.com/yahoo/react-intl/wiki for how translations work.
 ReactDOM.render(
-  <Provider store={ store }><App /></Provider>,
+  <Provider store={ store }>
+    <App />
+  </Provider>,
   document.getElementById('root')
 )
