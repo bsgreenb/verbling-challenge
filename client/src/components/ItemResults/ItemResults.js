@@ -1,10 +1,10 @@
-import React from 'react';
+import React from 'react'
 import { connect } from 'react-redux'
 import { getVisibleItems } from '../../reducers/itemsReducer.js'
 
 import Item from './Item/Item.js'
 
-import './ItemResults.css';
+import './ItemResults.css'
 
 let itemResults = ({ items, searchStr }) => (
   <div className="item-results">
@@ -18,15 +18,15 @@ let itemResults = ({ items, searchStr }) => (
       )
     }
   </div>
-);
+)
 
 const mapStateToProps = ({ items, searchStr }) => (
   {
     items: getVisibleItems(items, searchStr),
     searchStr
   }
-);
+)
 
-itemResults = connect(mapStateToProps)(itemResults);
+itemResults = connect(mapStateToProps)(itemResults)
 
-export default itemResults;
+export default itemResults

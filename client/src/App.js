@@ -1,11 +1,11 @@
-import React from 'react';
+import React from 'react'
 import { connect } from 'react-redux'
 import { ButtonToolbar, Button } from 'react-bootstrap'
 
 import { ItemSearch, ItemResults } from './components'
 import { toggleAllItems, openAllItems, closeAllItems, addItem } from './actions/itemsActions.js'
 
-import './App.css';
+import './App.css'
 
 let App = ({ openAll, closeAll, toggleAll, add }) => (
   <div className="app">
@@ -23,25 +23,25 @@ let App = ({ openAll, closeAll, toggleAll, add }) => (
   </div>
 )
 
-const mapDispatchToProps = (dispatch, ownProps) => (
+const mapDispatchToProps = (dispatch) => (
   {
     toggleAll: () => {
-      dispatch(toggleAllItems());
+      dispatch(toggleAllItems())
     },
     openAll: () => {
-      dispatch(openAllItems());
+      dispatch(openAllItems())
     },
     closeAll: () => {
-      dispatch(closeAllItems());
+      dispatch(closeAllItems())
     },
     add: () => {
-      const title = window.prompt('Title', 'Learn React the Hard Way');
-      const body = window.prompt('Body', 'A book about Latin and React and all those good things.');
-      dispatch(addItem(title, body));
+      const title = window.prompt('Title', 'Learn React the Hard Way')
+      const body = window.prompt('Body', 'A book about Latin and React and all those good things.')
+      dispatch(addItem(title, body))
     }
   }
-);
+)
 
-App = connect(null, mapDispatchToProps)(App);
+App = connect(null, mapDispatchToProps)(App)
 
-export default App;
+export default App

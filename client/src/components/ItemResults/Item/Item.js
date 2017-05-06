@@ -8,7 +8,7 @@ import './Item.css'
 import openUmbrella from './open-umbrella.svg'
 import closedUmbrella from './closed-umbrella.svg'
 
-const TRUNCATION_LENGTH = 40;
+const TRUNCATION_LENGTH = 40
 
 let Item = ({ title, body, open, onClick }) => (
   <div onClick={ onClick } className={ "item " + ( open ? "open" : "closed" ) }>
@@ -27,17 +27,17 @@ let Item = ({ title, body, open, onClick }) => (
     </Row>
     { open && <Row><Col xs={12} className="small">{ body }</Col></Row> }
   </div>
-);
+)
 //TODO: proptype here and elsewhere
 
 const mapDispatchToProps = (dispatch, ownProps) => (
   {
     onClick: () => {
-      dispatch(toggleItem(ownProps.id));
+      dispatch(toggleItem(ownProps.id))
     }
   }
-);
+)
 
-Item = connect(null, mapDispatchToProps)(Item);
+Item = connect(null, mapDispatchToProps)(Item)
 
-export default Item;
+export default Item

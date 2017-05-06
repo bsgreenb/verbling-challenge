@@ -3,15 +3,16 @@
 export const loadLocalStorage = () => {
   // Handles situation where browser does not allow us to use local storage.
   try {
-    const serializedState = localStorage.getItem('state');
+    const serializedState = localStorage.getItem('state')
     if (serializedState === null) {
-      return undefined;
+      return undefined
     } else {
-      return JSON.parse(serializedState);
+      return JSON.parse(serializedState)
     }
   } catch (err) {
-    console.error("Could not load local storage");
-    return undefined;
+        /* eslint no-console: 0 */
+    console.error("Could not load local storage")
+    return undefined
   }
 }
 
@@ -20,9 +21,10 @@ export const loadLocalStorage = () => {
 export const saveLocalStorage = (state) => {
   // Ensure that we have the right to write
   try {
-    const serializedState = JSON.stringify(state);
+    const serializedState = JSON.stringify(state)
     localStorage.setItem('state', serializedState)
   } catch (err) {
-    console.error("Could not save to local storage");
+        /* eslint no-console: 0 */
+    console.error("Could not save to local storage")
   }
 }

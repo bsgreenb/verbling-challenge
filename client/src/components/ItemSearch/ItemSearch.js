@@ -31,4 +31,4 @@ const mapDispatchToProps = (dispatch) => (
 
 ItemSearch = connect(null, mapDispatchToProps)(ItemSearch)
 
-export default ItemSearch;
+export default ItemSearch
