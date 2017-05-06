@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { ButtonToolbar, Button } from 'react-bootstrap'
 
 import { ItemSearch, ItemResults } from './components'
-import { toggleAllItems, openAllItems, closeAllItems, addItem } from './actions.js'
+import { toggleAllItems, openAllItems, closeAllItems, addItem } from './actions/itemsActions.js'
 
 import './App.css';
 
@@ -35,8 +35,8 @@ const mapDispatchToProps = (dispatch, ownProps) => (
       dispatch(closeAllItems());
     },
     add: () => {
-      const title = window.prompt('Title', 'lorem ipsum');
-      const body = window.prompt('Body', 'eratus ratus mento memori');
+      const title = window.prompt('Title', 'Learn React the Hard Way');
+      const body = window.prompt('Body', 'A book about Latin and React and all those good things.');
       dispatch(addItem(title, body));
     }
   }

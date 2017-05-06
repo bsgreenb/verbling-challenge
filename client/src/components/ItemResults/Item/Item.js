@@ -2,7 +2,7 @@ import React from 'react'
 import { Row, Col } from 'react-bootstrap'
 import { connect } from 'react-redux'
 
-import { toggleItem } from './actions.js'
+import { toggleItem } from '../../../actions/itemActions.js'
 
 import './Item.css'
 import openUmbrella from './open-umbrella.svg'

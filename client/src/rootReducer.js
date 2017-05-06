@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 
-import itemsReducer from './components/ItemResults/itemsReducer.js'
+import itemsReducer from './reducers/itemsReducer.js'
+import searchStrReducer from './reducers/searchStrReducer.js'
 
 const rootReducer = combineReducers({
-  items: itemsReducer
+  items: itemsReducer,
+  searchStr: searchStrReducer
 });
 
 export default rootReducer;

@@ -1,4 +1,4 @@
-import { OPEN_ITEM, CLOSE_ITEM, TOGGLE_ITEM } from './actions.js'
+import { OPEN_ITEM, CLOSE_ITEM, TOGGLE_ITEM } from '../actions/itemActions.js'
 
 const itemReducer = (state={}, action) => {
   if (state.id === action.id) {
