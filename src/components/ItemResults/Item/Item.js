@@ -11,7 +11,7 @@ import closedUmbrella from './closed-umbrella.svg'
 
 const TRUNCATION_LENGTH = 40
 
-let Item = ({ title, body, open, onClick }) => (
+let Item = ({ title, body, open, onClick, intl }) => (
   <div onClick={ onClick } className={ "item " + ( open ? "open" : "closed" ) }>
     <Row>
       <Col xs={11}>
@@ -22,14 +22,17 @@ let Item = ({ title, body, open, onClick }) => (
         <img
         className="umbrella-icon"
         src={ open ? openUmbrella : closedUmbrella }
-        alt={ open ? 'item is open' : 'item is closed' }
+        alt={ open ? intl.messages['Item.itemOpen'] : intl.messages['Item.itemClosed'] }
         />
       </Col>
     </Row>
     { open && <Row><Col xs={12} className="small">{ body }</Col></Row> }
   </div>
 )
-//TODO: proptype here and elsewhere
+
+const mapStateToProps = ({ intl }) => (
+  { intl }
+)
 
 const mapDispatchToProps = (dispatch, ownProps) => (
   {
@@ -39,6 +42,6 @@ const mapDispatchToProps = (dispatch, ownProps) => (
   }
 )
 
-Item = connect(null, mapDispatchToProps)(Item)
+Item = connect(mapStateToProps, mapDispatchToProps)(Item)
 
 export default Item

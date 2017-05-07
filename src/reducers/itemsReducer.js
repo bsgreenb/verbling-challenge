@@ -17,7 +17,7 @@ const itemsReducer = (state = [], action) => {
       // Note: this ID approach only works because we don't have deletes.
       // You'll want to use node-uuid for a unique ID if you want to allow deletes without overlap.
     const nextId = state.length ? state[state.length - 1].id + 1 : 1
-    return [...state, {id: nextId, title: action.title, body: action.body, open: true}]
+    return [...state, {id: nextId, title: (action.title || ''), body: (action.body || ''), open: true}]
   }
   default:
     return state
@@ -32,7 +32,9 @@ export const getVisibleItems = (items, searchStr) => {
   if (searchStr.length === 0) {
     return items
   } else {
-    return items.filter(item => (item.title.indexOf(searchStr) !== -1) || item.body.indexOf(searchStr) !== -1)
+    searchStr = searchStr.toLowerCase()
+    // Note that searching is case-INsensitive.
+    return items.filter(item => (item.title.toLowerCase().indexOf(searchStr) !== -1) || item.body.toLowerCase().indexOf(searchStr) !== -1)
   }
 }
 

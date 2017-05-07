@@ -10,23 +10,31 @@ import './App.css'
 
 let App = ({ openAll, closeAll, toggleAll, add }) => (
   <div className="app">
-    <h2 className="heading">Verbling Challenge with Honors</h2>
+    <h2 className="heading">
+      <FormattedMessage id="App.heading" />
+    </h2>
     <div className="todo-list">
       <ItemSearch />
       <ItemResults />
       <ButtonToolbar className="button-toolbar">
-        <Button onClick={ openAll }>Open All</Button>
-        <Button onClick={ closeAll }>Close All</Button>
-        <Button onClick={ toggleAll }>Toggle All</Button>
-        <Button onClick={ add } className="pull-right" bsStyle="primary">Add</Button>
+        <Button onClick={ openAll }><FormattedMessage id="App.openAll" /></Button>
+        <Button onClick={ closeAll }><FormattedMessage id="App.closeAll" /></Button>
+        <Button onClick={ toggleAll }><FormattedMessage id="App.toggleAll" /></Button>
+        <Button onClick={ add } className="pull-right" bsStyle="primary"><FormattedMessage id="App.add" /></Button>
       </ButtonToolbar>
     </div>
   </div>
 )
 
-// TODO: acccess intl from ownProps.
-const mapDispatchToProps = (dispatch) => (
+const mapStateToProps = (state) => (
   {
+    intl: state.intl,
+    messages: (state.intl ? state.intl.messages : {})
+  }
+)
+
+const mapDispatchToProps = (dispatch) => {
+  return {
     toggleAll: () => {
       dispatch(toggleAllItems())
     },
@@ -36,14 +44,21 @@ const mapDispatchToProps = (dispatch) => (
     closeAll: () => {
       dispatch(closeAllItems())
     },
-    add: () => {
-      const title = window.prompt('Title', 'Learn React the Hard Way')
-      const body = window.prompt('Body', 'A book about Latin and React and all those good things.')
-      dispatch(addItem(title, body))
+    add: (messages) => {
+      const title = window.prompt(messages['App.titlePromptHeading'], messages['App.titlePromptDefaultAnswer'])
+      const body = window.prompt(messages['App.bodyPromptHeading'], messages['App.bodyPromptDefaultAnswer'])
+      dispatch(addItem(title,body))
     }
+  }
+}
+
+const mergeProps = ({ messages }, dispatchProps) => (
+  {
+    ...dispatchProps,
+    add: () => dispatchProps.add(messages)
   }
 )
 
-App = connect(null, mapDispatchToProps)(App)
+App = connect(mapStateToProps, mapDispatchToProps, mergeProps)(App)
 
 export default App

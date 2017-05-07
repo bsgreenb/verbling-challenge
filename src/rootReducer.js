@@ -5,7 +5,7 @@ import itemsReducer from './reducers/itemsReducer.js'
 import searchStrReducer from './reducers/searchStrReducer.js'
 
 const rootReducer = combineReducers({
-  locale: intlReducer.locale,
+  intl: intlReducer,
   items: itemsReducer,
   searchStr: searchStrReducer
 })

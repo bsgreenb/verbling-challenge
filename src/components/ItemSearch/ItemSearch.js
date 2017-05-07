@@ -8,19 +8,19 @@ import { searchItems } from '../../actions/itemsActions.js'
 import './ItemSearch.css'
 
 // Note, redux-form would be a logical option if more fields became involved.
-let ItemSearch = ({ search, searchStr }) => (
+let ItemSearch = ({ search, searchStr, intl }) => (
   <FormControl
     className="item-search"
     type="text"
-    placeholder="Search"
+    placeholder={ intl.messages['ItemSearch.search'] }
     onChange={(e) => search(e.target.value)}
     value={ searchStr }
   />
 )
-//
-// const mapStateToProps = ({searchStr}) => (
-//   { searchStr }
-// )
+
+const mapStateToProps = ({ intl }) => (
+  { intl }
+)
 
 const mapDispatchToProps = (dispatch) => (
   {
@@ -30,6 +30,6 @@ const mapDispatchToProps = (dispatch) => (
   }
 )
 
-ItemSearch = connect(null, mapDispatchToProps)(ItemSearch)
+ItemSearch = connect(mapStateToProps, mapDispatchToProps)(ItemSearch)
 
 export default ItemSearch
