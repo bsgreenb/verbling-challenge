@@ -11,7 +11,7 @@ import { loadLocalStorage, saveLocalStorage } from './localStorage.js'
 import App from './App.js'
 import createStore from './store.js'
 
-import * as generatedMessages from './translations/'
+import locales from './locales/'
 
 const persistedState = loadLocalStorage()
 
@@ -26,7 +26,7 @@ const initialState = Object.assign({}, persistedState, {
   intl: {
     locale: locale,
     defaultLocale: DEFAULT_LOCALE,
-    messages: generatedMessages[locale]
+    messages: locales[locale]['messages']
   }
 })
 

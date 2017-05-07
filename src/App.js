@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { ButtonToolbar, Button } from 'react-bootstrap'
 import { FormattedMessage } from 'react-intl'
 
-import { ItemSearch, ItemResults } from './components'
+import { ItemSearch, ItemResults, LocaleSelector } from './components'
 import { toggleAllItems, openAllItems, closeAllItems, addItem } from './actions/itemsActions.js'
 
 import './App.css'
@@ -13,22 +13,24 @@ let App = ({ openAll, closeAll, toggleAll, add }) => (
     <h2 className="heading">
       <FormattedMessage id="App.heading" />
     </h2>
-    <div className="todo-list">
-      <ItemSearch />
-      <ItemResults />
-      <ButtonToolbar className="button-toolbar">
-        <Button onClick={ openAll }><FormattedMessage id="App.openAll" /></Button>
-        <Button onClick={ closeAll }><FormattedMessage id="App.closeAll" /></Button>
-        <Button onClick={ toggleAll }><FormattedMessage id="App.toggleAll" /></Button>
-        <Button onClick={ add } className="pull-right" bsStyle="primary"><FormattedMessage id="App.add" /></Button>
-      </ButtonToolbar>
+    <div className="container">
+      <LocaleSelector />
+      <div className="todo-list">
+        <ItemSearch />
+        <ItemResults />
+        <ButtonToolbar className="button-toolbar">
+          <Button onClick={ openAll }><FormattedMessage id="App.openAll" /></Button>
+          <Button onClick={ closeAll }><FormattedMessage id="App.closeAll" /></Button>
+          <Button onClick={ toggleAll }><FormattedMessage id="App.toggleAll" /></Button>
+          <Button onClick={ add } className="pull-right" bsStyle="primary"><FormattedMessage id="App.add" /></Button>
+        </ButtonToolbar>
+      </div>
     </div>
   </div>
 )
 
 const mapStateToProps = (state) => (
   {
-    intl: state.intl,
     messages: (state.intl ? state.intl.messages : {})
   }
 )

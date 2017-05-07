@@ -1,0 +1,7 @@
+.locale-option {
+  cursor: pointer;
+}
+
+.selected-option {
+  border-color: #333333;
+}

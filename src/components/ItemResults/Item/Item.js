@@ -20,9 +20,9 @@ let Item = ({ title, body, open, onClick, intl }) => (
       </Col>
       <Col xs={1}>
         <img
-        className="umbrella-icon"
-        src={ open ? openUmbrella : closedUmbrella }
-        alt={ open ? intl.messages['Item.itemOpen'] : intl.messages['Item.itemClosed'] }
+          className="umbrella-icon"
+          src={ open ? openUmbrella : closedUmbrella }
+          alt={ open ? intl.messages['Item.itemOpen'] : intl.messages['Item.itemClosed'] }
         />
       </Col>
     </Row>
