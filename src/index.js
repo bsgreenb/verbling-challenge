@@ -1,38 +1,23 @@
+// We handle all mounting concerns through this top level component file,
+// whereas <App /> on down is domain-specific to this app.
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-intl-redux'
-import { addLocaleData } from 'react-intl'
-import enLocaleData from 'react-intl/locale-data/en'
-import esLocaleData from 'react-intl/locale-data/es'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap/dist/css/bootstrap-theme.css'
 
 import { loadLocalStorage, saveLocalStorage } from './localStorage.js'
 import App from './App.js'
 import createStore from './store.js'
+import { getIntl } from './intl.js'
 
-import locales from './locales/'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap-theme.css'
 
 const persistedState = loadLocalStorage()
-
-const DEFAULT_LOCALE = 'es'
-addLocaleData([...enLocaleData, ...esLocaleData]);
-let locale = DEFAULT_LOCALE
+let previousLocale = null
 if (persistedState && persistedState.intl && persistedState.intl.locale) {
-    locale = persistedState.intl.locale
+  previousLocale = persistedState.intl.locale
 }
-
-const initialState = Object.assign({}, persistedState, {
-  intl: {
-    locale: locale,
-    defaultLocale: DEFAULT_LOCALE,
-    messages: locales[locale]['messages']
-  }
-})
-
-// We handle all mounting concerns through this top level component file,
-// whereas <App /> on down is domain-specific to this app.
-
+const initialState = Object.assign({}, persistedState, getIntl(previousLocale))
 const store = createStore(initialState)
 
 // Subscribe to changes in the store so we can save them to local storage.

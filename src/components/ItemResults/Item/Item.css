@@ -4,6 +4,7 @@
   margin: auto;
   overflow: hidden;
   cursor: pointer;
+  border-radius: 9px 9px 9px 9px;
 }
 
 .item:not(:last-child) {

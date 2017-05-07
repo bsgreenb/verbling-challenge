@@ -1,7 +1,12 @@
-.locale-option {
+.thumbnail.locale-option {
   cursor: pointer;
+  padding-top: 12px;
 }
 
-.selected-option {
-  border-color: #333333;
+.thumbnail.selected-option {
+  border: solid 1px #333333;
+}
+
+.thumbnail:not(.selected-option):hover {
+  border: solid 1px #888888;
 }

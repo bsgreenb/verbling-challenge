@@ -6,6 +6,8 @@ import { FormattedMessage } from 'react-intl'
 import { ItemSearch, ItemResults, LocaleSelector } from './components'
 import { toggleAllItems, openAllItems, closeAllItems, addItem } from './actions/itemsActions.js'
 
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap-theme.css'
 import './App.css'
 
 let App = ({ openAll, closeAll, toggleAll, add }) => (
