@@ -5,6 +5,8 @@ addLocaleData([...enLocaleData, ...esLocaleData])
 
 import locales from './locales/'
 
+
+
 const DEFAULT_LOCALE = 'es'
 
 export const getIntl = (locale = DEFAULT_LOCALE) => (

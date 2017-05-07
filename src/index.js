@@ -13,7 +13,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css'
 
 const persistedState = loadLocalStorage()
-let previousLocale = null
+let previousLocale = undefined
 if (persistedState && persistedState.intl && persistedState.intl.locale) {
   previousLocale = persistedState.intl.locale
 }
