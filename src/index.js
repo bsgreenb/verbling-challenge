@@ -13,7 +13,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap/dist/css/bootstrap-theme.css'
 
 const persistedState = loadLocalStorage()
-let previousLocale = null
+let previousLocale = undefined
 if (persistedState && persistedState.intl && persistedState.intl.locale) {
   previousLocale = persistedState.intl.locale
 }
@@ -27,7 +27,6 @@ store.subscribe(() => {
   saveLocalStorage({ items, intl })
 })
 
-// See https://github.com/yahoo/react-intl/wiki for how translations work.
 ReactDOM.render(
   <Provider store={ store } >
     <App />

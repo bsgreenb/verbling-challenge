@@ -3,17 +3,17 @@
   margin-bottom: 36px;
 }
 
-.todo-list {
+.item-finder {
   width: 400px;
   margin: auto;
   margin-top: 12px;
   font-size: 16px;
 }
 
-.todo-list .button-toolbar {
+.item-finder .btn-toolbar {
   margin-top: 12px;
 }
 
-.todo-list .btn {
+.item-finder .btn {
   font-size: 15px;
 }
