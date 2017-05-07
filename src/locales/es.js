@@ -5,7 +5,7 @@ export const messages = {
   'App.openAll': 'Abrir Todo',
   'App.closeAll': 'Cierra Todo',
   'App.toggleAll': 'Alternar Todo',
-  'App.add': 'Add',
+  'App.add': 'Crear',
   'App.titlePromptHeading': 'Título',
   'App.titlePromptDefaultAnswer': 'React Profesional',
   'App.bodyPromptHeading': 'Texto',
