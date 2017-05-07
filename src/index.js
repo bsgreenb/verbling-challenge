@@ -27,7 +27,6 @@ store.subscribe(() => {
   saveLocalStorage({ items, intl })
 })
 
-// See https://github.com/yahoo/react-intl/wiki for how translations work.
 ReactDOM.render(
   <Provider store={ store } >
     <App />

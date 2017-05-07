@@ -17,10 +17,10 @@ let App = ({ openAll, closeAll, toggleAll, add }) => (
     </h2>
     <div className="container">
       <LocaleSelector />
-      <div className="todo-list">
+      <div className="item-finder">
         <ItemSearch />
         <ItemResults />
-        <ButtonToolbar className="button-toolbar">
+        <ButtonToolbar>
           <Button onClick={ openAll }><FormattedMessage id="App.openAll" /></Button>
           <Button onClick={ closeAll }><FormattedMessage id="App.closeAll" /></Button>
           <Button onClick={ toggleAll }><FormattedMessage id="App.toggleAll" /></Button>
